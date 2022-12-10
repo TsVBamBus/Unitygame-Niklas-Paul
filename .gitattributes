@@ -1,5 +1,0 @@
-*.meta filter=lfs diff=lfs merge=lfs -text
-*.dylib filter=lfs diff=lfs merge=lfs -text
-*.lld filter=lfs diff=lfs merge=lfs -text
-[200~C:/Users/Anwender/Documents/Schule/11Klasse/IT/Game/GitHub/Unitygame-Niklas-Paul/IT[[:space:]]2D[[:space:]]game[[:space:]]1.0/Library/PackageCache/com.unity.burst@1.7.3/.Runtime/hostmac/lld~ filter=lfs diff=lfs merge=lfs -text
-C:/Users/Anwender/Documents/Schule/11Klasse/IT/Game/GitHub/Unitygame-Niklas-Paul/IT[[:space:]]2D[[:space:]]game[[:space:]]1.0/Library/PackageCache/com.unity.burst@1.7.3/.Runtime/hostmac filter=lfs diff=lfs merge=lfs -text
