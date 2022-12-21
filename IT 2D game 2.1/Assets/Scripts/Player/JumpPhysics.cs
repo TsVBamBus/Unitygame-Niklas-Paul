@@ -9,7 +9,10 @@ public class JumpPhysics : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
+    public Animator animator;
+
     Rigidbody2D rb;
+
 
     void Awake()
     {
@@ -22,6 +25,6 @@ public class JumpPhysics : MonoBehaviour
         if(0> rb.velocity.y) {
             rb.velocity += Vector2.up * Physics2D.gravity * (fallMultiplier - 1) * Time.deltaTime;
         }
-
+        animator.SetFloat("yVelocity", rb.velocity.y);
     }
 }
