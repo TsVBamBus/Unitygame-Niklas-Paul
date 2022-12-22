@@ -22,8 +22,12 @@ public class JumpPhysics : MonoBehaviour
 
     void Update()
     {
-        if(0> rb.velocity.y) {
+        if(0> rb.velocity.y && Input.GetButton("Jump")) {
             rb.velocity += Vector2.up * Physics2D.gravity * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y < 0 && !Input.GetButton("Jump"))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
