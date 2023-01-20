@@ -1308,6 +1308,7 @@ GameObject:
   - component: {fileID: 889352088}
   - component: {fileID: 889352087}
   - component: {fileID: 889352089}
+  - component: {fileID: 889352090}
   m_Layer: 0
   m_Name: BackgroundAudio
   m_TagString: Untagged
@@ -1438,6 +1439,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b20f4b7eb5682d488f8857a1ff487fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &889352090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889352086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474971f954c63f443b05988a4fb2e0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
 --- !u!1 &989916838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,6 +2202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1223604200}
   - component: {fileID: 1223604201}
+  - component: {fileID: 1223604202}
   m_Layer: 5
   m_Name: AudioSlider
   m_TagString: Untagged
@@ -2270,10 +2285,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1818205987}
-        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: SetVolume
-        m_Mode: 0
+      - m_Target: {fileID: 1223604202}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: ChangeVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2282,6 +2297,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1223604202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223604199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58caec7480ed49d49b59daf587b03177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSilder: {fileID: 1223604201}
 --- !u!1 &1265283259
 GameObject:
   m_ObjectHideFlags: 0
