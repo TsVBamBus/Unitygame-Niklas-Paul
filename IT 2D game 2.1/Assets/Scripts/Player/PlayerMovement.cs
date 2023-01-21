@@ -12,8 +12,7 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
-    
-
+   
     void Update()
     {
 
@@ -27,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
             
         }
+        
         else if (Input.GetButtonUp("Jump"))
         {
             
