@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelEnd : MonoBehaviour
 {
-    public Collider2D C;
+    public Collider2D WinnerC;
     public GameObject Winner;
 
     IEnumerator waiter()
@@ -13,8 +13,9 @@ public class LevelEnd : MonoBehaviour
         yield return new WaitForSeconds(10);
     }
 
-    private void OnTriggerEnter2D(Collider2D C)
+    private void OnTriggerEnter2D(Collider2D W)
     {
+        W = WinnerC;
         Winner.SetActive(true);
         Time.timeScale = 0f;
         StartCoroutine(waiter());
@@ -22,5 +23,6 @@ public class LevelEnd : MonoBehaviour
         SceneManager.LoadScene(0);       
     }
     
+
 
 }

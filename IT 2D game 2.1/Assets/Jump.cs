@@ -17,7 +17,7 @@ public class Jump : MonoBehaviour
     public LayerMask groundLayer;
     Vector2 vecGravity;
 
-    public float a;
+    
     bool isJumping;
     float jumpCounter;
     void Start()
@@ -57,7 +57,7 @@ public class Jump : MonoBehaviour
 
             if (rb.velocity.y > 0)
             {
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * a);
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.6f);
             }
         }
 
