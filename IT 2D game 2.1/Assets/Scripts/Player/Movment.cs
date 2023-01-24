@@ -9,10 +9,14 @@ public class Movment : MonoBehaviour
     bool m_FacingRight = true;
 
     Rigidbody2D rb;
+    public Animator animator;
 
     private void Update()
     {
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        animator.SetFloat("speed", Mathf.Abs(move.x));
+        
+
 
         transform.Translate(move * speed * Time.deltaTime);
 
@@ -24,7 +28,7 @@ public class Movment : MonoBehaviour
         else if (move.x < 0 && m_FacingRight)
         {
            
-            Flip();
+            Flip();  
         }
     }
     private void FixedUpdate()

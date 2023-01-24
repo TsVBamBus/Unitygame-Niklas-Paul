@@ -13,30 +13,40 @@ public class Jump : MonoBehaviour
     [SerializeField] float jumpMultiplier;
 
 
-    public Transform groundcheck;
+    public Transform groundcheckCollider;
     public LayerMask groundLayer;
     Vector2 vecGravity;
 
-    
+    const float groundCheckRadius = 0.2f;
     bool isJumping;
     float jumpCounter;
+    bool isGrounded;
+
+    public Animator animator;
     void Start()
     {
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-
-        if(Input.GetButtonDown("Jump") && isGrounded())
+        
+        
+        //springt ab
+        if (Input.GetButtonDown("Jump") && isGrounded == true) 
         {
+            
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isJumping = true;
             jumpCounter = 0;
+            
         }
-        if (rb.velocity.y > 0 && isJumping)
+
+        //Bewegung nach oben
+        if (rb.velocity.y > 0 && isJumping) 
         {
+           
             jumpCounter += Time.deltaTime;
             if (jumpCounter > jumpTime) isJumping = false;
 
@@ -50,7 +60,9 @@ public class Jump : MonoBehaviour
 
             rb.velocity += vecGravity * currentJumpM * Time.deltaTime;
         }
-        if (Input.GetButtonUp("Jump"))
+
+        //lässt springen los
+        if (Input.GetButtonUp("Jump")) 
         {
             isJumping = false;
             jumpCounter = 0;
@@ -61,13 +73,36 @@ public class Jump : MonoBehaviour
             }
         }
 
-        if(rb.velocity.y < 0)
+        //fällt
+        if (rb.velocity.y < 0) 
         {
             rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
+            
         }
+       
+        
+
+
     }
-    bool isGrounded()
+    /*
+    private void Update()
     {
-        return Physics2D.OverlapCapsule(groundcheck.position, new Vector2(0.2221262f, 0.2120273f), CapsuleDirection2D.Vertical, 0, groundLayer);
+    
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            animator.SetBool("jump", true);
+        }
+
+        
+    }
+    */
+    void Grouncheck()
+    {
+        isGrounded = false;
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundcheckCollider.position, groundCheckRadius, groundLayer);
+        if (colliders.Length > 0) isGrounded = true;
+
+        animator.SetBool("jump", !isGrounded);
     }
 }
