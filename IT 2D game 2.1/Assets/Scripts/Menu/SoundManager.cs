@@ -19,17 +19,17 @@ public class SoundManager : MonoBehaviour
 
         }
     }
-    public void ChangeVolume()
+    public void ChangeVolume() 
     {
         AudioListener.volume = volumeSilder.value;
         Save();
     }
 
-    private void Save()
+    private void Save() //lädt Sound Einstellungen
     {
         PlayerPrefs.SetFloat("musicVolume", volumeSilder.value);
     }
-    private void Load()
+    private void Load() //Speichert Sopund Einstellungen
     {
         volumeSilder.value = PlayerPrefs.GetFloat("musicVolume");
 

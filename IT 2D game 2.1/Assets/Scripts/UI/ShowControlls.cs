@@ -9,6 +9,7 @@ public class ShowControlls : MonoBehaviour
     {
         StartCoroutine(waiter());
     }
+    //zeigt die Controlls für 4 Sekunden
     IEnumerator waiter()
     {
         yield return new WaitForSeconds(4);

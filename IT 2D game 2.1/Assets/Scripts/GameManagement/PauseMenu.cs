@@ -21,20 +21,20 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-    public void Resume()
+    public void Resume() //pausiert Spiel indem timeScale auf 0 gesetzt wird
     {
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
-    void Pause()
+    void Pause() //setzt Spiel fort indem timeScale auf 1 gesetzt wird
     {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
-    public void QuitGame()
+    public void QuitGame() //man kommt ins Hauptmenu zurück 
     {
         SceneManager.LoadScene(0);
     }

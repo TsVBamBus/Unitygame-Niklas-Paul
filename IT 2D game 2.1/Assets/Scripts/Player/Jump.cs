@@ -11,16 +11,17 @@ public class Jump : MonoBehaviour
     [SerializeField] float fallMultiplier;
     [SerializeField] float jumpTime;
     [SerializeField] float jumpMultiplier;
+    
 
 
     public Transform groundcheckCollider;
     public LayerMask groundLayer;
-    Vector2 vecGravity;
 
-    const float groundCheckRadius = 0.2f;
+    Vector2 vecGravity;
+    
     bool isJumping;
     float jumpCounter;
-    bool isGrounded;
+    [SerializeField] bool isGrounded;
 
     public Animator animator;
     void Start()
@@ -40,6 +41,7 @@ public class Jump : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isJumping = true;
             jumpCounter = 0;
+            Debug.Log("j");
             
         }
 
@@ -59,6 +61,7 @@ public class Jump : MonoBehaviour
             }
 
             rb.velocity += vecGravity * currentJumpM * Time.deltaTime;
+            
         }
 
         //lässt springen los
@@ -71,38 +74,46 @@ public class Jump : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.6f);
             }
+            
         }
 
         //fällt
         if (rb.velocity.y < 0) 
         {
-            rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
-            
+            rb.velocity -= vecGravity * fallMultiplier * Time.fixedDeltaTime;
         }
        
-        
-
-
     }
-    /*
+    
+    //Update() übernimmt animationen
     private void Update()
     {
-    
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        Groundcheck();
+        if (isGrounded == false)
         {
             animator.SetBool("jump", true);
+            if (Movment.move.y > 0) animator.SetFloat("yVelocity", 1);
+            
+            else animator.SetFloat("yVelocity", -1);
         }
-
-        
+        else
+        {
+            animator.SetBool("jump", false);
+            animator.SetFloat("yVelocity", 0);
+        }
+           
     }
-    */
-    void Grouncheck()
+    
+    //checkt ob er auf dem Boden Steht
+    void Groundcheck()
     {
         isGrounded = false;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundcheckCollider.position, groundCheckRadius, groundLayer);
+        //ein capsule collider wird unter ihm generriert
+        Collider2D[] colliders = Physics2D.OverlapCapsuleAll(groundcheckCollider.position, new Vector2(1.5f, 0.3f),CapsuleDirection2D.Horizontal, 0, groundLayer);
+
+        // Wenn er dieser den Boden breührt ist "isGrounded" true
         if (colliders.Length > 0) isGrounded = true;
 
-        animator.SetBool("jump", !isGrounded);
     }
 }

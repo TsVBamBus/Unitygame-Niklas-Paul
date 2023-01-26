@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //Beendet das Spiel
     public void QuitGame()
     {
         Debug.Log("Quit");

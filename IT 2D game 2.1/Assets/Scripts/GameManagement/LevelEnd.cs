@@ -6,19 +6,21 @@ using UnityEngine.SceneManagement;
 public class LevelEnd : MonoBehaviour
 {
 
-    public GameObject Winner;
+    public GameObject Winner; //Winner Screen
     private void Start()
     {
-        Time.timeScale = 1f;
+        // bei jedem Betreten der Scene wird TimeScale auf 1 gesetzt da er am Ende jeder Scene auf 0 gesetzt wird
+        Time.timeScale = 1f; 
     }
-    IEnumerator waiter()
+    
+    IEnumerator waiter() //Erzeugung des Waiters
     {
         yield return new WaitForSeconds(10);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Finish"))
+        if (other.gameObject.CompareTag("Finish")) //wenn Ziel erreicht wird
         {
             Winner.SetActive(true);
             Time.timeScale = 0f;
@@ -26,9 +28,8 @@ public class LevelEnd : MonoBehaviour
             LevelAcces.level = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadScene(0);
         }
-        if (other.gameObject.CompareTag("DeathBarrier"))
+        if (other.gameObject.CompareTag("DeathBarrier")) //wenn die Todes Barriere berührt wird
         {
-            Debug.Log("Trigger");
             SceneManager.LoadScene(0);
         }
     }
