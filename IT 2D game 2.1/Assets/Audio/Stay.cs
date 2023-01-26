@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stay : MonoBehaviour
 {
+
     public void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
