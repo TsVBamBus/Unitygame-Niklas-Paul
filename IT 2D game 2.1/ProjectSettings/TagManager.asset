@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DeathBarrier
   - EnemyBird
+  - LooserScreen
   layers:
   - Default
   - TransparentFX
