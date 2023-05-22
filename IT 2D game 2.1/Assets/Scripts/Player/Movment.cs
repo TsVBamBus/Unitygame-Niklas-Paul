@@ -10,6 +10,13 @@ public class Movment : MonoBehaviour
 
     public Animator animator;
 
+    private coinmanager m;
+
+    void Start()
+    {
+        m = GameObject.FindGameObjectWithTag("Text").GetComponent<coinmanager>();
+    }
+
     private void Update()
     {
         //basic Steuerung
@@ -30,16 +37,24 @@ public class Movment : MonoBehaviour
             Flip();  
         }
     }
-    
+
     //Spiegelt den Spieler achsensymetrisch zur mittleren X-Achse wenn er nach links/rechts läuft
     private void Flip()
     {
-  
+
         m_FacingRight = !m_FacingRight;
 
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+     void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Cherry")
+        {
+            m.AddCoin();
+            Destroy(other.gameObject);
+        }
     }
    
 
