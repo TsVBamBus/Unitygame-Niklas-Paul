@@ -7,11 +7,11 @@ using Pathfinding;
 public class Health : MonoBehaviour
 {
     static public int Leben = 3;
-    Vector2 pBirdPush = new Vector2 (10f, 0f);
-    Vector2 nBirdPush = new Vector2(-10f, 0f);
+    //Vector2 pBirdPush = new Vector2 (10f, 0f);
+    //Vector2 nBirdPush = new Vector2(-10f, 0f);
 
-    public Rigidbody2D player;
-    public AIPath aIPath;
+    //public Rigidbody2D player;
+    //public AIPath aIPath;
 
     public GameObject looserScreen;
     public GameObject playerUi;
@@ -19,6 +19,10 @@ public class Health : MonoBehaviour
     public GameObject Heart1;
     public GameObject Heart2;
     public GameObject Heart3;
+
+    public Rigidbody2D rb;
+    public float kbSpeed = 100f;
+
 
 
     public void FixedUpdate()
@@ -33,23 +37,16 @@ public class Health : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D other)
     {
         //Bei Collision mit Vogel
-        if (collision.gameObject.CompareTag("EnemyBird"))
+        if (other.gameObject.CompareTag("EnemyBird"))
         {
             Leben--;
 
-            if (aIPath.desiredVelocity.x > 0.01f)
-            {
-                player.AddForce(pBirdPush, ForceMode2D.Force);
-                Debug.Log("Push");
-            }
-            if (aIPath.desiredVelocity.x > -0.01f)
-            {
-                player.AddForce(nBirdPush, ForceMode2D.Force);
-                Debug.Log("Push");
-            }
+            Vector2 direction = (transform.position - other.transform.position).normalized;
+
+            other.GetComponent<rb>().AddForce(direction * kbSpeed);
         }
     }
 }
