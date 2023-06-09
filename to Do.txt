@@ -1,0 +1,17 @@
+Paul:
+
+- Mehr Gegner
+	->Boss Gegner
+	->Gumpa
+-(Steuerung überarbeiten)
+
+Niklas:
+
+- Coinsystem ausbauen
+	->Skin System
+	->Save System
+- Animationen für Gegner
+
+Beide:
+
+- Zeit System

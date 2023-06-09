@@ -9,6 +9,9 @@ TagManager:
   - LooserScreen
   - Cherry
   - Text
+  - Wall
+  - PigBody
+  - PigHead
   layers:
   - Default
   - TransparentFX

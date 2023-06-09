@@ -7,11 +7,6 @@ using Pathfinding;
 public class Health : MonoBehaviour
 {
     static public int Leben = 3;
-    //Vector2 pBirdPush = new Vector2 (10f, 0f);
-    //Vector2 nBirdPush = new Vector2(-10f, 0f);
-
-    //public Rigidbody2D player;
-    //public AIPath aIPath;
 
     public GameObject looserScreen;
     public GameObject playerUi;
@@ -22,6 +17,8 @@ public class Health : MonoBehaviour
 
     public Rigidbody2D rb;
     public float kbSpeed = 100f;
+
+    public GameObject pig;
 
 
 
@@ -47,6 +44,14 @@ public class Health : MonoBehaviour
             Vector2 direction = (transform.position - other.transform.position).normalized;
 
             rb.AddForce(direction * kbSpeed);
+        }
+        if (other.gameObject.CompareTag("PigBody"))
+        {
+            Leben--;
+        }
+        if (other.gameObject.CompareTag("PigHead"))
+        {
+            Destroy(pig);
         }
     }
 }
