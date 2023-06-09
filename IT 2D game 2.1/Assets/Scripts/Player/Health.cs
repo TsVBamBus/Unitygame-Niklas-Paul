@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
 
             Vector2 direction = (transform.position - other.transform.position).normalized;
 
-            other.GetComponent<rb>().AddForce(direction * kbSpeed);
+            rb.AddForce(direction * kbSpeed);
         }
     }
 }
