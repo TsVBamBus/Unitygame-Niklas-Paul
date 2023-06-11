@@ -16,7 +16,8 @@ public class Health : MonoBehaviour
     public GameObject Heart3;
 
     public Rigidbody2D rb;
-    public float kbSpeed = 100f;
+    public float bKbSpeed;
+    public float pKbSpeed;
 
     public GameObject pig;
 
@@ -41,16 +42,21 @@ public class Health : MonoBehaviour
         {
             Leben--;
 
-            Vector2 direction = (transform.position - other.transform.position).normalized;
+            Vector2 bDirection = (transform.position - other.transform.position).normalized;
 
-            rb.AddForce(direction * kbSpeed);
+            rb.AddForce(bDirection * bKbSpeed);
         }
         if (other.gameObject.CompareTag("PigBody"))
         {
             Leben--;
+
+            Vector2 pDirection = (transform.position - other.transform.position).normalized;
+
+            rb.AddForce(pDirection * pKbSpeed);
         }
         if (other.gameObject.CompareTag("PigHead"))
         {
+            Debug.Log("Hit");
             Destroy(pig);
         }
     }
