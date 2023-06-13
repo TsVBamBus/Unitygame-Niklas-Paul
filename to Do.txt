@@ -2,8 +2,6 @@ Paul:
 
 - Mehr Gegner
 	->Boss Gegner
-	->Gumpa
--(Steuerung überarbeiten)
 
 Niklas:
 
@@ -15,3 +13,6 @@ Niklas:
 Beide:
 
 - Zeit System
+
+Bug Fixes:
+- Musik
