@@ -6,7 +6,6 @@ public class Movment : MonoBehaviour
 {
     static public Vector2 move;
     public int speed;
-    bool m_FacingRight = true;
 
     public Animator animator;
 
@@ -26,27 +25,15 @@ public class Movment : MonoBehaviour
        
         transform.Translate(move * speed * Time.deltaTime);
 
-        if (move.x > 0 && !m_FacingRight)
-        {
-            Flip();
-        }
-   
-        else if (move.x < 0 && m_FacingRight)
-        {
-           
-            Flip();  
-        }
+        Flip();
     }
 
     //Spiegelt den Spieler achsensymetrisch zur mittleren X-Achse wenn er nach links/rechts läuft
     private void Flip()
     {
+        if (move.x < 0) transform.localScale = new Vector3(-10.71964f, 12.35508f, 1f);
 
-        m_FacingRight = !m_FacingRight;
-
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        if (move.x > 0) transform.localScale = new Vector3(10.71964f, 12.35508f, 1f);
     }
      void OnTriggerEnter2D(Collider2D other)
     {

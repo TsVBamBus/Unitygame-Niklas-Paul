@@ -6,6 +6,7 @@ public class Pig : MonoBehaviour
 {
     public float speed;
     private int direction = 1;
+    public GameObject pig;
 
     private void Update()
     {
@@ -27,5 +28,10 @@ public class Pig : MonoBehaviour
         if (direction == -1) transform.localScale = new Vector3(5.874f, 6.823248f, 1.4685f);
 
         if (direction == 1) transform.localScale = new Vector3(-5.874f, 6.823248f, 1.4685f);
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

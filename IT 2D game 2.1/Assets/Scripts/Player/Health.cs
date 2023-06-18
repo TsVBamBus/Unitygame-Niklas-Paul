@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     public float bKbSpeed;
     public float pKbSpeed;
 
-    public GameObject pig;
+    Pig p;
 
 
 
@@ -56,8 +56,7 @@ public class Health : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PigHead"))
         {
-            Debug.Log("Hit");
-            Destroy(pig);
+            p.Die();
         }
     }
 }
