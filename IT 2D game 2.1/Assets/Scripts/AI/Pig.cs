@@ -5,8 +5,7 @@ using UnityEngine;
 public class Pig : MonoBehaviour
 {
     public float speed;
-    private int direction = 1;
-    public GameObject pig;
+    private int direction = 1;    
 
     private void Update()
     {

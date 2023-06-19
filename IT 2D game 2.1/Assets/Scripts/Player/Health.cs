@@ -22,6 +22,10 @@ public class Health : MonoBehaviour
     Pig p;
 
 
+    private void Start()
+    {
+        p.Die();
+    }
 
     public void FixedUpdate()
     {
@@ -54,6 +58,9 @@ public class Health : MonoBehaviour
 
             rb.AddForce(pDirection * pKbSpeed);
         }
+
+
+        //Problem: Hier soll das Schwein sterben doch tut es nicht da das Pig Gameobject nicht erkannt wird welches zestört werden soll
         if (other.gameObject.CompareTag("PigHead"))
         {
             p.Die();
