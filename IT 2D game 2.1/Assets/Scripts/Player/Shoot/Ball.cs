@@ -17,7 +17,7 @@ public class Ball : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.CompareTag("PigBody")) p.Die();
+        if (collision.gameObject.CompareTag("PigBody")) Destroy(collision.gameObject);
 
         //if (collision.gameObject.CompareTag("EnemyBird"));
 
