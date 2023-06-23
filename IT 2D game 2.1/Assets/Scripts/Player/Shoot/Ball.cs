@@ -19,7 +19,7 @@ public class Ball : MonoBehaviour
 
         if (collision.gameObject.CompareTag("PigBody")) Destroy(collision.gameObject);
 
-        //if (collision.gameObject.CompareTag("EnemyBird"));
+        if (collision.gameObject.CompareTag("EnemyBird")) Destroy(collision.gameObject);
 
         Destroy(gameObject);
     }
