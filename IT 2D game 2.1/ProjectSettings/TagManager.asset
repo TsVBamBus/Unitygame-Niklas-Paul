@@ -12,6 +12,7 @@ TagManager:
   - Wall
   - PigBody
   - PigHead
+  - Rino Wall
   layers:
   - Default
   - TransparentFX
