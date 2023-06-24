@@ -6,8 +6,6 @@ public class Ball : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb;
-
-    Pig p;
     
     void Start()
     {
@@ -20,6 +18,8 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.CompareTag("PigBody")) Destroy(collision.gameObject);
 
         if (collision.gameObject.CompareTag("EnemyBird")) Destroy(collision.gameObject);
+
+        if (collision.gameObject.CompareTag("Rino")) Rino.Health = Rino.Health - 2;
 
         Destroy(gameObject);
     }

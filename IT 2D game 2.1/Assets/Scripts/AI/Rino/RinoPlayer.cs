@@ -7,7 +7,7 @@ public class RinoPlayer : MonoBehaviour
     public static bool playerInSight;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Rino"))
+        if (collision.gameObject.CompareTag("RinoPlayerCheck"))
         {
             playerInSight = true;
         }

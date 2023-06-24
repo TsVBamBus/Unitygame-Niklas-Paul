@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RinoMove : MonoBehaviour
+public class Rino : MonoBehaviour
 {
     public float speed = 7;
     public int direction = 1;
     public bool hitWall = false;
+
+    public static int Health = 100;
 
     RinoWall rw;
 
@@ -21,6 +23,10 @@ public class RinoMove : MonoBehaviour
         {
             speed = 7;
             RinoPlayer.playerInSight = false;
+        }
+        if(Health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

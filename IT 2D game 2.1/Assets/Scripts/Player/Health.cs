@@ -61,5 +61,10 @@ public class Health : MonoBehaviour
         {
             Destroy(other.gameObject.transform.parent.gameObject);
         }
+        if (other.gameObject.CompareTag("RinoHeadCollider"))
+        {
+            Rino.Health = Rino.Health - 1;
+            Debug.Log("Hit");
+        }
     }
 }
