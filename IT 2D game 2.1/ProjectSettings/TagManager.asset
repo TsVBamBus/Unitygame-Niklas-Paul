@@ -15,7 +15,7 @@ TagManager:
   - Rino Wall
   - Rino
   - RinoPlayerCheck
-  - RinoHeadCollider
+  - RinoHealthBar
   layers:
   - Default
   - TransparentFX

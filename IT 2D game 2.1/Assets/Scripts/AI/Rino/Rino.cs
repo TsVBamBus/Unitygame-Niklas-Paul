@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Rino : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class Rino : MonoBehaviour
     public int direction = 1;
     public bool hitWall = false;
 
-    public static int Health = 100;
+    public static float Health = 100f;
+
+    public Image healthBar;
 
     RinoWall rw;
 
@@ -28,6 +31,7 @@ public class Rino : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        healthBar.fillAmount = Health / 100f;
     }
 
     private void FixedUpdate()

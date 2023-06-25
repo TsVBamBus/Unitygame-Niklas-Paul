@@ -19,7 +19,7 @@ public class Ball : MonoBehaviour
 
         if (collision.gameObject.CompareTag("EnemyBird")) Destroy(collision.gameObject);
 
-        if (collision.gameObject.CompareTag("Rino")) Rino.Health = Rino.Health - 2;
+        if (collision.gameObject.CompareTag("Rino")) Rino.Health --;
 
         Destroy(gameObject);
     }

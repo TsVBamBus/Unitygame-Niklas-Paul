@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
 
     public GameObject looserScreen;
     public GameObject playerUi;
+    public GameObject rinoHealthBar;
 
     public GameObject Heart1;
     public GameObject Heart2;
@@ -18,6 +19,7 @@ public class Health : MonoBehaviour
     public Rigidbody2D rb;
     public float bKbSpeed;
     public float pKbSpeed;
+    public float rKbSpeed;
 
     Pig p;
 
@@ -56,15 +58,21 @@ public class Health : MonoBehaviour
 
             rb.AddForce(pDirection * pKbSpeed);
         }
-        //Problem: Hier soll das Schwein sterben doch tut es nicht da das Pig Gameobject nicht erkannt wird welches zestört werden soll
         if (other.gameObject.CompareTag("PigHead"))
         {
             Destroy(other.gameObject.transform.parent.gameObject);
         }
-        if (other.gameObject.CompareTag("RinoHeadCollider"))
+        if (other.gameObject.CompareTag("Rino"))
         {
-            Rino.Health = Rino.Health - 1;
-            Debug.Log("Hit");
+            Leben--;
+
+            Vector2 rDirection = (transform.position - other.transform.position).normalized;
+
+            rb.AddForce(rDirection * rKbSpeed);
         }
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("RinoHealthBar")) rinoHealthBar.SetActive(true);
     }
 }
