@@ -15,6 +15,11 @@ public class Rino : MonoBehaviour
 
     RinoWall rw;
 
+    private void Start()
+    {
+        Health = 100f;
+    }
+
     private void Update()
     {
         Flip();
