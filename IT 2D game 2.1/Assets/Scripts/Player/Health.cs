@@ -23,9 +23,11 @@ public class Health : MonoBehaviour
 
     Pig p;
 
+    private LevelEnd levelEnd;
+
     private void Start()
     {
-        
+        levelEnd = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelEnd>();
     }
     public void FixedUpdate()
     {
@@ -34,7 +36,7 @@ public class Health : MonoBehaviour
         if (Leben <= 0)
         {
             Heart1.SetActive(false);
-            LevelEnd.GameLost(looserScreen, playerUi);
+            levelEnd.GameLost(looserScreen, playerUi);
         }
 
     }

@@ -33,7 +33,7 @@ public class LevelEnd : MonoBehaviour
         }
     }
 
-    public static void GameLost(GameObject looserScreen, GameObject playerUi)
+    public void GameLost(GameObject looserScreen, GameObject playerUi)
     {
         Time.timeScale = 0f;
         looserScreen.SetActive(true);

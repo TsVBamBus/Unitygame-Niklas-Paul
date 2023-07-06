@@ -7,19 +7,19 @@ public class coinmanager : MonoBehaviour
 {
     public int coinanzahl;
     public Text coinanzeige;
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        coinanzahl = PlayerPrefs.GetInt("Money", 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        coinanzeige.text = coinanzahl.ToString(); 
+        coinanzeige.text = PlayerPrefs.GetInt("Money", 0).ToString(); 
     }
     public void AddCoin()
     {
         coinanzahl++;
+        PlayerPrefs.SetInt("Money", coinanzahl);
     }
 }

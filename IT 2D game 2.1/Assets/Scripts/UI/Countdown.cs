@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class Countdown : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 240f;
-
-    
+    float startingTime = 4f;
+    private LevelEnd levelEnd;
 
     [SerializeField] Text countdownText;
 
     void Start()
     {
-        currentTime = startingTime; 
+        currentTime = startingTime;
+        levelEnd = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelEnd>();
     }
     void Update()
     {
@@ -24,7 +24,7 @@ public class Countdown : MonoBehaviour
         if (currentTime <= 0)
         {
             currentTime = 0;
-            
+            levelEnd.GameLost(levelEnd.looserScreen, levelEnd.playerUi);
         }
     }
 
