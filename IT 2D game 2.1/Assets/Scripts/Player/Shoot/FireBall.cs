@@ -7,6 +7,7 @@ public class FireBall : MonoBehaviour
     public Transform firePoint;
     public GameObject ballPrefab;
 
+    //Wenn die Fire Taste gedrückt wird soll der Ball abgeschossen werden
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -15,6 +16,7 @@ public class FireBall : MonoBehaviour
         }
     }
 
+    //Ein Prefab des Feuerballs wird iniziert
     void Shoot()
     {
         Instantiate(ballPrefab, firePoint.position, firePoint.rotation);

@@ -10,16 +10,16 @@ public class coinmanager : MonoBehaviour
 
     void Start()
     {
-        coinanzahl = PlayerPrefs.GetInt("Money", 0);
+        coinanzahl = PlayerPrefs.GetInt("Money", 0); //Speicher wird aufgerufen
     }
 
     void Update()
     {
-        coinanzeige.text = PlayerPrefs.GetInt("Money", 0).ToString(); 
+        coinanzeige.text = PlayerPrefs.GetInt("Money", 0).ToString();  //uptated die Coin Anzeige
     }
     public void AddCoin()
     {
         coinanzahl++;
-        PlayerPrefs.SetInt("Money", coinanzahl);
+        PlayerPrefs.SetInt("Money", coinanzahl); //Addiert den Coin zur neuen Coin Balance im Speicher
     }
 }

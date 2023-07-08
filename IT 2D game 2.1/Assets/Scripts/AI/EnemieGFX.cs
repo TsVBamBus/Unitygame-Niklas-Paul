@@ -7,7 +7,7 @@ public class EnemieGFX : MonoBehaviour
 {
     public AIPath aIPath;
 
-    // Update is called once per frame
+    //Spiegelt den Vogel
     void Update()
     {
         if(aIPath.desiredVelocity.x > 0.01f)

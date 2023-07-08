@@ -5,6 +5,8 @@ using UnityEngine;
 public class FlipFirePoint : MonoBehaviour
 {
     bool m_FacingRight = true;
+
+    //Je nachdem wie der Spieler steht soll sich auch der Firepoint spiegeln
     void Update()
     {
         if (Movment.move.x > 0 && !m_FacingRight)

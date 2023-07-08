@@ -9,9 +9,11 @@ public class Ball : MonoBehaviour
     
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        rb.velocity = transform.right * speed; //Iniziert die Geschwindigkeit
     }
 
+    //Regelt was passiert wenn der FeuerBall den andere Objekte trifft
+    // Danach soll sich der Ball selber zerstören
     public void OnTriggerEnter2D(Collider2D collision)
     {
 

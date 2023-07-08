@@ -27,8 +27,11 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        levelEnd = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelEnd>();
+        levelEnd = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelEnd>(); //Referenz zum LevelEnd Script auf dem Spieler
     }
+
+    //Soblad der Spieler leben abgezogen bekommt soll er weniger Herzen haben
+    // Wenn er keine Leben mehr hat soll er sterben
     public void FixedUpdate()
     {
         if (Leben <= 2) Heart3.SetActive(false);
@@ -48,17 +51,17 @@ public class Health : MonoBehaviour
         {
             Leben--;
 
-            Vector2 bDirection = (transform.position - other.transform.position).normalized;
+            Vector2 bDirection = (transform.position - other.transform.position).normalized; //Richtung der Kraft
 
-            rb.AddForce(bDirection * bKbSpeed);
+            rb.AddForce(bDirection * bKbSpeed); //Inizierung der Kraft
         }
         if (other.gameObject.CompareTag("PigBody"))
         {
             Leben--;
 
-            Vector2 pDirection = (transform.position - other.transform.position).normalized;
+            Vector2 pDirection = (transform.position - other.transform.position).normalized; //Richtung der Kraft
 
-            rb.AddForce(pDirection * pKbSpeed);
+            rb.AddForce(pDirection * pKbSpeed); //Inizierung der Kraft
         }
         if (other.gameObject.CompareTag("PigHead"))
         {
@@ -68,11 +71,13 @@ public class Health : MonoBehaviour
         {
             Leben--;
 
-            Vector2 rDirection = (transform.position - other.transform.position).normalized;
+            Vector2 rDirection = (transform.position - other.transform.position).normalized; //Richtung der Kraft
 
-            rb.AddForce(rDirection * rKbSpeed);
+            rb.AddForce(rDirection * rKbSpeed); //Inizierung der Kraft
         }
     }
+
+    // Wenn der Spieler in die Nähe vom Rino kommt soll die Lebensanzeige vom Rino angezeigt werden
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("RinoHealthBar")) rinoHealthBar.SetActive(true);

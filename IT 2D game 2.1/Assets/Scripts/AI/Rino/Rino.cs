@@ -17,9 +17,10 @@ public class Rino : MonoBehaviour
 
     private void Start()
     {
-        Health = 100f;
+        Health = 100f; //Health wird am Anfang des Spiels immer zurückgesetzt
     }
 
+    //Kontrolliert wie sich das Rino verhalten soll
     private void Update()
     {
         Flip();
@@ -36,15 +37,17 @@ public class Rino : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        healthBar.fillAmount = Health / 100f;
+        healthBar.fillAmount = Health / 100f; // füllt die Health bar je nach dem wie viel Leben das Rino hat
     }
 
+    //Geschwindigkeit des Rino
     private void FixedUpdate()
     {
         Vector2 rinoMovement = new Vector2(direction, 0);
         transform.Translate(rinoMovement * Time.deltaTime * speed);
     }
 
+    //Spiegelt das Rino
     private void Flip()
     {
         if (direction == -1) transform.localScale = new Vector3(26.02444f, 19.7771f, 1.4685f);

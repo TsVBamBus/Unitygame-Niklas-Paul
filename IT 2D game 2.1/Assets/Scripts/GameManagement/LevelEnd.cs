@@ -33,6 +33,7 @@ public class LevelEnd : MonoBehaviour
         }
     }
 
+    //Methode die aufgerufen wird sobald das Spieler das Spiel verliert
     public void GameLost(GameObject looserScreen, GameObject playerUi)
     {
         Time.timeScale = 0f;
